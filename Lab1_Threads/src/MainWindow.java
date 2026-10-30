@@ -164,7 +164,7 @@ public class MainWindow extends JFrame {
                 String info =
                         "Лабораторная работа №1\n" +
                                 "Студент 1: Саша — вариант №6\n" +
-                                "Студент 2: Имя Фамилия — вариант №1\n";
+                                "Студент 2: Арнаут Дмитрий — вариант №1\n";
 
                 for (char c : info.toCharArray()) {
                     final char letter = c;
