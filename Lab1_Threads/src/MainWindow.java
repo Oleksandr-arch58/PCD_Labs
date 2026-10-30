@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
     private final Random random = new Random();
 
     public MainWindow() {
-        setTitle("Лабораторная №1 — Вариант 4");
+        setTitle("Лабораторная №1 — Варианты 6 и 1");
         setSize(900, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,8 +84,17 @@ public class MainWindow extends JFrame {
         startButton.addActionListener(e -> startThreads());
 
         clearButton.addActionListener(e -> {
-            resultArea.setText("");
+            resultArea.setText(
+                    "Студент 1 — вариант №6\n" +
+                            "Th1: сумма произведений чисел на нечётных позициях, с начала массива\n" +
+                            "Th2: сумма произведений чисел на нечётных позициях, с конца массива\n\n" +
+                            "Студент 2 — вариант №1\n" +
+                            "Th1 и Th2: условия варианта №1\n" +
+                            "----------------------------------------\n\n"
+            );
+
             studentArea.setText("");
+
         });
 
         generateArray();
@@ -154,9 +163,8 @@ public class MainWindow extends JFrame {
 
                 String info =
                         "Лабораторная работа №1\n" +
-                                "Вариант: 4\n" +
-                                "Студент 1: Имя Фамилия\n" +
-                                "Студент 2: Имя Фамилия\n";
+                                "Студент 1: Саша — вариант №6\n" +
+                                "Студент 2: Имя Фамилия — вариант №1\n";
 
                 for (char c : info.toCharArray()) {
                     final char letter = c;
