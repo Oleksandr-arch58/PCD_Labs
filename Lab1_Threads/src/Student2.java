@@ -7,8 +7,7 @@ public class Student2 implements Runnable {
     private final boolean reverse;
     private final Consumer<String> output;
 
-    public Student2(int[] mas, boolean reverse,
-                    Consumer<String> output) {
+    public Student2(int[] mas, boolean reverse, Consumer<String> output) {
         this.mas = mas;
         this.reverse = reverse;
         this.output = output;
@@ -16,6 +15,7 @@ public class Student2 implements Runnable {
 
     @Override
     public void run() {
+        long total = 0;
         int first = -1;
 
         int start = reverse ? mas.length - 1 : 0;
@@ -24,17 +24,18 @@ public class Student2 implements Runnable {
 
         for (int i = start; i != end; i += step) {
 
-            if (mas[i] % 2 != 0) {
+            // Проверяем, является ли число чётным
+            if (mas[i] % 2 == 0) {
 
                 if (first == -1) {
                     first = i;
                 } else {
-                    int sum = first + i;
+                    int sum = mas[first] + mas[i];
+                    total += sum;
 
                     output.accept(
                             Thread.currentThread().getName()
-                                    + ": числа " + mas[first] + " и " + mas[i]
-                                    + " | позиции " + first + " + " + i
+                                    + ": " + mas[first] + " + " + mas[i]
                                     + " = " + sum + "\n"
                     );
 
@@ -42,5 +43,10 @@ public class Student2 implements Runnable {
                 }
             }
         }
+
+        output.accept(
+                Thread.currentThread().getName()
+                        + ": ИТОГОВАЯ СУММА = " + total + "\n\n"
+        );
     }
 }
